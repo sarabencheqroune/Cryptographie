@@ -1,10 +1,8 @@
 # Cryptographie
-Compte Rendu du TME 
 
-
-Exercice 1 – Modus Operandi
+Modus Operandi
 -----------------------------------------------------
-1.Ecrire un script shell qui permette, à partir d’un tel fichier, de créer deux fichiers, l’un correspondant à l’entête, l’autre aux données binaires.
+Un script shell qui à partir d’un tel fichier crée deux fichiers, l’un correspondant à l’entête, l’autre aux données binaires.
 -----------------------------------------------------
 #!/bin/bash
 
@@ -20,7 +18,7 @@ header_bytes=$(wc -c < "$header")
 
 tail -c +$((header_bytes + 1)) "$input" > "$data"
 
-2.Écrire un script shell qui chiffre des fichiers de données binaires
+Un script shell qui chiffre des fichiers de données binaires
 -----------------------------------------------------
 #!/bin/bash
 
@@ -42,7 +40,7 @@ openssl enc -aes-128-ecb -K "$key" -in data.bin -out data_ecb.bin -nopad -nosalt
 
 openssl enc -aes-128-cbc -K "$key" -iv "$iv" -in data.bin -out data_cbc.bin -nopad -nosalt
 
-3.Écrire un script shell qui reconstruit des images à partir des données chiffrées
+Un script shell qui reconstruit des images à partir des données chiffrées
 ----------------------------------------------------------------------------
 #!/bin/bash
 
@@ -54,7 +52,7 @@ open reconstructed_ecb.ppm
 
 open reconstructed_cbc.ppm
 
-4.Comparer toutes les images construites
+Les images construites
 -----------------------------------------------------
 ![reconstructed_cbc](https://github.com/user-attachments/assets/3e5fc808-1459-45ed-8061-204da699b0d7)
 ![reconstructed_ecb](https://github.com/user-attachments/assets/f41691a8-6996-49d9-8550-35969c896999)
@@ -73,9 +71,9 @@ Qu’en déduisez-vous comme technique pour mettre à mal la stéganographie
 
 Le mode ECB peut révéler des informations cachées dans les images, car il ne cache pas les motifs répétitifs et cet exercice est la preuve de ce raisonnement vue que l'image UniKorn.ppm cache un message qui est " vive la crypto !!!!!!". Pour la stéganographie, il est préférable d'utiliser des modes comme CBC ou même GCM (Galois/Counter Mode) qui produisent un chiffrement plus complexe et moins prévisible.
 
-Exercice 2 – Comparaison des algorithmes de chiffrement
+Comparaison des algorithmes de chiffrement
 -----------------------------------------------------
-1.Écrire un script shell ou un programme en C ou en Python qui permette de mesurer le temps de calcul d’un processus.
+Un script shell ou un programme en C et en Python qui permette de mesurer le temps de calcul d’un processus.
 -----------------------------------------------------
 code en C :
 
@@ -115,7 +113,7 @@ print(f"Temps d'exécution: {execution_time} secondes")
 RESULTAT DE MON CODE :
 Temps d'exécution: 0.3978869915008545 secondes
 
-2.Mesurer le temps de calcul pris par différents cryptosystème
+Mesurer le temps de calcul pris par différents cryptosystème
 -----------------------------------------------------
 #!/bin/bash
 
@@ -136,7 +134,7 @@ for algo in "${algorithms[@]}"; do
     
 done
 
-3.Construire un tableau de records de vitesse et nommer le gagnant de la compétition !
+Construire un tableau de records de vitesse et nommer le gagnant de la compétition !
 -----------------------------------------------------
 [Running] /bin/bash "/var/folders/ld/85qwr0cs4jd5g_bkbt5gsq6m0000gn/T/tempCodeRunnerFile.shellscript"
 Chiffrement avec aes-128-cbc
