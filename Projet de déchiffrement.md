@@ -1,5 +1,7 @@
 # Cryptographie
 
+![UniKorn](https://github.com/user-attachments/assets/3c973d26-0268-4bc9-9b5c-7b12aa98baa5)
+
 Modus Operandi
 -----------------------------------------------------
 Un script shell qui à partir d’un tel fichier crée deux fichiers, l’un correspondant à l’entête, l’autre aux données binaires.
